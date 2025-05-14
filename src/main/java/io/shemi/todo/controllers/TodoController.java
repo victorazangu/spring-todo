@@ -1,7 +1,9 @@
 package io.shemi.todo.controllers;
 
 import io.shemi.todo.models.Todo;
+import io.shemi.todo.records.todos.CreateTodo;
 import io.shemi.todo.services.TodoService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,7 +28,7 @@ public class TodoController {
 
     //create -POST
     @PostMapping
-    public ResponseEntity<Todo> createTodo(@RequestBody Todo t){
+    public ResponseEntity<Todo> createTodo(@Valid @RequestBody Todo t){
         return ResponseEntity.ok(service.createTodo(t));
     }
     // get all - GET

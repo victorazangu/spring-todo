@@ -1,8 +1,11 @@
 package io.shemi.todo.services;
 
+import io.shemi.todo.dtos.Mapper;
 import io.shemi.todo.exceptions.TodoNotFound;
 import io.shemi.todo.models.Todo;
+import io.shemi.todo.records.todos.CreateTodo;
 import io.shemi.todo.repositories.TodoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,6 +15,7 @@ import java.util.Optional;
 @Service
 public class TodoService {
     public final TodoRepository repository;
+    public final Mapper mapper = new Mapper();
 
     public TodoService(TodoRepository repository) {
         this.repository = repository;

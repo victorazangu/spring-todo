@@ -18,6 +18,11 @@ public class Todo {
     public Todo() {
     }
 
+    public Todo(String title, String description) {
+        this.title = title;
+        this.description = description;
+    }
+
     public Todo(String title, String description, boolean completed) {
         this.title = title;
         this.description = description;
