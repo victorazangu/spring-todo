@@ -26,10 +26,15 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/v1/users/register", "/api/v1/users/login").permitAll()
-                        .requestMatchers("/api/v1/users/**").authenticated()
+                        .requestMatchers(
+                                "/api/v1/users/register",
+                                "/api/v1/users/login",
+                                "/api/v1/todos/home",
+                                "/actuator/**"
+                        ).permitAll()
                         .anyRequest().authenticated()
                 )
+
 //                .exceptionHandling(ex -> ex
 //                        .authenticationEntryPoint(customAuthenticationEntryPoint) // handles 401
 //                )

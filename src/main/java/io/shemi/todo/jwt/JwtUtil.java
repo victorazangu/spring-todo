@@ -14,11 +14,9 @@ import java.util.Date;
 @Component
 public class JwtUtil {
     private final Key key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
-    @Value("${jwt.issuer}")
-    private String issuer;
+    private final String issuer ="VictorShemi@2025";
+    private final Integer expiration =6000;
 
-    @Value("${jwt.expiration.minitues}")
-    private Number expiration;
 
     public String generateToken(String username) {
         return Jwts.builder()

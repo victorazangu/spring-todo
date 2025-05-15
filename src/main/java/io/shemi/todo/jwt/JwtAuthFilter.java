@@ -17,12 +17,12 @@ import java.util.Collections;
 
 @Component
 public class JwtAuthFilter extends OncePerRequestFilter {
-
-    @Autowired
-    private JwtUtil jwtUtil;
-
-    @Autowired
+    private final JwtUtil jwtUtil;
     private CustomUserDetailsService customUserDetailsService;
+    public JwtAuthFilter(JwtUtil jwtUtil, CustomUserDetailsService customUserDetailsService) {
+        this.jwtUtil = jwtUtil;
+        this.customUserDetailsService = customUserDetailsService;
+    }
 
 
     @Override
